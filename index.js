@@ -7,3 +7,15 @@ let carsList = document.getElementById("cars");
 cars.forEach((car) => {
     car.renderOnPage(carsList);
 });
+
+const form = document.querySelector("form");
+const brand = document.getElementById("brand");
+const color = document.getElementById("color");
+const maxSpeed = document.getElementById("maxSpeed");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let newCar = new Car(brand.value, color.value, parseFloat(maxSpeed.value));
+    newCar.renderOnPage(carsList);
+    cars.push(newCar);
+})
