@@ -6,7 +6,8 @@ const groen = document.getElementById("groen");
  
 checkbox.addEventListener('change', async (e) => {
   while (checkbox.checked) {
-      // 3 seconden groen
+    try {
+      // 3 seconden groen       
       groen.setAttribute('class', 'active');
       await setTimeoutAsync(3000);
 
@@ -22,5 +23,8 @@ checkbox.addEventListener('change', async (e) => {
 
       // en rood weer uitschakelen
       rood.setAttribute('class', '');
+    } catch (e) {
+      console.error(e);
+    }
   }
 });
