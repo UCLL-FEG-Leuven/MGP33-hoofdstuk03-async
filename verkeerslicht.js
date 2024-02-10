@@ -33,6 +33,9 @@ checkbox.addEventListener('change', (e) => {
           // en weer groen
           rood.setAttribute('class', '');
           groen.setAttribute('class', 'active');
+        })
+        .catch(e => {
+          console.error(e);
         });
     }, 8000);
   }
