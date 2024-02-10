@@ -1,10 +1,3 @@
-// const setTimeoutAsync = function (msec) {
-//   return new Promise(
-//     function(resolve, reject) {
-//       setTimeout(resolve, msec);
-//     });
-// } 
- 	
 const setTimeoutAsync = msec =>
  	new Promise(resolve => setTimeout(resolve, msec));
 
