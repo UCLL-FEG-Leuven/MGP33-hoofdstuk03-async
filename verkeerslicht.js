@@ -1,8 +1,10 @@
 const checkbox = document.querySelector("input[type='checkbox']");
 const groen = document.getElementById("groen");
  
-setInterval(() => {
+checkbox.addEventListener('change', (e) => {
   if (checkbox.checked) {
     groen.setAttribute('class', 'active');
+  } else {
+    groen.setAttribute('class', '');
   }
-}, 1000);
+});
