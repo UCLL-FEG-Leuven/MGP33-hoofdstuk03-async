@@ -1,0 +1,19 @@
+svg {
+    overflow: visible;
+}
+
+circle {
+    fill: gray;
+}
+
+#groen.active {
+    fill: green;
+}
+
+#oranje.active {
+    fill: orange;
+}
+
+#red.active {
+    fill: red;
+}
