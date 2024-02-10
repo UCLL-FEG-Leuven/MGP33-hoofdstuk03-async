@@ -4,9 +4,8 @@ const setTimeoutAsync = msec =>
 const checkbox = document.querySelector("input[type='checkbox']");
 const groen = document.getElementById("groen");
  
-checkbox.addEventListener('change', async (e) => {  
-  if (checkbox.checked) {    
-    setInterval(async () => {
+checkbox.addEventListener('change', async (e) => {
+  while (checkbox.checked) {
       // 3 seconden groen
       groen.setAttribute('class', 'active');
       await setTimeoutAsync(3000);
@@ -21,9 +20,7 @@ checkbox.addEventListener('change', async (e) => {
       rood.setAttribute('class', 'active');
       await setTimeoutAsync(3000);
 
-      // en weer groen
+      // en rood weer uitschakelen
       rood.setAttribute('class', '');
-      groen.setAttribute('class', 'active');
-    }, 8000);
   }
 });
