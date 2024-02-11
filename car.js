@@ -25,7 +25,6 @@ class Car {
       this.#brakePedalPosition = 0; // ter info: position is een waarde tussen 0 en 1
     }
 
-    // Properties beginnen ook met een kleine letter (= conventie)
     get id() { return this.#id; }
     get brand() { return this.#brand; }
     get started() { return this.#started; } 
@@ -43,7 +42,6 @@ class Car {
         this.#brakePedalPosition = newValue;
     }
 
-    // method van een Car object. De naam begint met een kleine letter (= conventie)
     start() { 
         this.#started = true;
         console.log(`${this.#brand} with ID ${this.id} started.`);
@@ -73,13 +71,14 @@ class Car {
     }
 
     renderOnPage(listElement) {
-        // Elke auto is verantwoordelijk om 'zichzelf' te tonen op het scherm (als een <li>).
-        // De allereerste keer dat renderOnPage() wordt aangeroepen bestaat er nog geen <li> en zal de car dus eentje aanmaken.
-        // listElement is een <ol> of een <ul>: dat mag de caller beslissen.
         if (!this.#liElement) {
-            listElement.insertAdjacentHTML("beforeend", `<li id="${this.#id}"></li>`);
-            this.#liElement = document.getElementById(this.#id);
+            listElement.insertAdjacentHTML("beforeend", `<li id="car${this.#id}"></li>`);
+            this.#liElement = document.getElementById(`car${this.#id}`);
         }
-        this.#liElement.innerHTML = `${this.#brand} with ID ${this.#id}, color ${this.#color} and max speed ${this.#maxSpeed}.`;
+        this.#liElement.innerHTML = `<span>${this.#brand} with ID ${this.#id}, color ${this.#color} and max speed ${this.#maxSpeed}.</span><button>X</button>`;
+        const removeButton = document.querySelector(`#car${this.#id} button`);
+        removeButton.addEventListener('click', (e) => {
+            e.currentTarget.parentNode.remove();
+        })
     }
   }
